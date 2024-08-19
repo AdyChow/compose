@@ -31,7 +31,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MaterialTheme {
-                Surface(modifier = Modifier.fillMaxSize())  {
+                Surface(modifier = Modifier.fillMaxSize()) {
                     MessageCard(Message("Android", "Compose is awesome!"))
                 }
             }
@@ -56,9 +56,21 @@ class MainActivity : ComponentActivity() {
             Spacer(modifier = Modifier.width(8.dp))
 
             Column {
-                Text(text = msg.name, color = MaterialTheme.colors.secondary, style = MaterialTheme.typography.subtitle1)
+                Text(
+                    text = msg.name,
+                    color = MaterialTheme.colors.secondary,
+                    style = MaterialTheme.typography.subtitle1
+                )
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(text = msg.body, style = MaterialTheme.typography.body2)
+
+                Surface(shape = MaterialTheme.shapes.medium, elevation = 1.dp) {
+                    Text(
+                        text = msg.body,
+                        modifier = Modifier.padding(4.dp),
+                        style = MaterialTheme.typography.body2
+                    )
+                }
+
             }
         }
 
