@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -49,12 +50,13 @@ class MainActivity : ComponentActivity() {
                 modifier = Modifier
                     .size(40.dp)
                     .clip(CircleShape)
+                    .border(3.dp, MaterialTheme.colors.primary, CircleShape)
             )
 
             Spacer(modifier = Modifier.width(8.dp))
 
             Column {
-                Text(text = msg.name)
+                Text(text = msg.name, color = MaterialTheme.colors.secondary)
                 Spacer(modifier = Modifier.height(8.dp))
                 Text(text = msg.body)
             }
