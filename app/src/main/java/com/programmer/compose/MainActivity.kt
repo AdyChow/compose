@@ -56,9 +56,9 @@ class MainActivity : ComponentActivity() {
             Spacer(modifier = Modifier.width(8.dp))
 
             Column {
-                Text(text = msg.name, color = MaterialTheme.colors.secondary)
+                Text(text = msg.name, color = MaterialTheme.colors.secondary, style = MaterialTheme.typography.subtitle1)
                 Spacer(modifier = Modifier.height(8.dp))
-                Text(text = msg.body)
+                Text(text = msg.body, style = MaterialTheme.typography.body2)
             }
         }
 
