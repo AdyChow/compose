@@ -1,6 +1,5 @@
 package com.programmer.compose
 
-import android.content.res.Configuration.UI_MODE_NIGHT_YES
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -14,6 +13,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
@@ -75,15 +75,33 @@ class MainActivity : ComponentActivity() {
 
             }
         }
-
     }
 
-    @Preview(uiMode = UI_MODE_NIGHT_YES)
+    @Composable
+    fun Conversation(messages: List<Message>) {
+        LazyColumn {
+            item {
+                for (message in messages) {
+                    MessageCard(message)
+                }
+            }
+        }
+    }
+
+    @Preview
     @Composable
     fun PreviewMessageCard() {
         ComposeTheme {
             Surface(modifier = Modifier.fillMaxSize()) {
-                MessageCard(Message("Android", "Compose is awesome!"))
+//                MessageCard(Message("Android", "Compose is awesome!"))
+                val list = arrayListOf(Message("Android", "Compose is awesome!"),
+                    Message("Android2", "Compose is awesome!"),
+                    Message("Android3", "Compose is awesome!dsldkls"),
+                    Message("Android4", "Compose is awesome!dsldkl"),
+                    Message("Android5", "Compose is awesomed\ndjksdjksjk!"),
+                    Message("Android6", "Compose is awesome!\ndjkf\njslf\ndsjk")
+                )
+                Conversation(list)
             }
         }
     }
